@@ -49,5 +49,4 @@ public class LoginController {
         usuarioLogado.desloga();
         result.redirectTo(this).form();
     }
-
 }
