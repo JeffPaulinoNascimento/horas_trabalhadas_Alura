@@ -15,6 +15,7 @@ public class UsuarioLogado implements Serializable {
     public void fazLogin(Usuario usuario) {
         this.usuario = usuario;
     }
+
     public void desloga(){
         this.usuario = null;
     }
@@ -22,4 +23,7 @@ public class UsuarioLogado implements Serializable {
         return this.usuario != null;
     }
 
+    public Usuario getUsuario() {
+        return usuario;
+    }
 }
