@@ -1,6 +1,7 @@
 package br.com.alura.horas.dao;
 
 import br.com.alura.horas.modelos.HoraLancada;
+import br.com.alura.horas.modelos.Usuario;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
@@ -28,5 +29,12 @@ public class HoraLancadaDao {
         manager.getTransaction().begin();
         manager.persist(horaLancada);
         manager.getTransaction().commit();
+    }
+
+    public List<HoraLancada> horasDoUsuario(Usuario usuario) {
+        String jpql = "select h from HoraLancada h where h.usuario = :usuario order by h.data";
+        TypedQuery<HoraLancada> query = manager.createQuery(jpql, HoraLancada.class);
+        query.setParameter("usuario", usuario);
+        return query.getResultList();
     }
 }

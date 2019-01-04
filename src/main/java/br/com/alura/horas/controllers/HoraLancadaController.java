@@ -2,6 +2,7 @@ package br.com.alura.horas.controllers;
 
 import br.com.alura.horas.dao.HoraLancadaDao;
 import br.com.alura.horas.modelos.HoraLancada;
+import br.com.alura.horas.modelos.RelatorioDeHoras;
 import br.com.alura.horas.seguranca.UsuarioLogado;
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Result;
@@ -9,6 +10,7 @@ import br.com.caelum.vraptor.validator.Validator;
 
 import javax.inject.Inject;
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 public class HoraLancadaController {
@@ -40,5 +42,11 @@ public class HoraLancadaController {
 
     public void lista() {
         result.include("horas", dao.lista());
+    }
+
+    public void relatorioDeHoras(){
+        List<HoraLancada> horas = dao.horasDoUsuario(usuarioLogado.getUsuario());
+        RelatorioDeHoras relatorioDeHoras = new RelatorioDeHoras(horas);
+        result.include("relatorio", relatorioDeHoras);
     }
 }
