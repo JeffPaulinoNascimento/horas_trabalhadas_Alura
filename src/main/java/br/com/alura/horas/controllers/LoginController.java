@@ -42,6 +42,7 @@ public class LoginController {
             validator.add(new SimpleMessage("login_invalido", "Login ou senha incorretos"));
             validator.onErrorRedirectTo(this).form();
         }
+
     }
 
     @Open
