@@ -19,9 +19,11 @@ public class Usuario implements Serializable {
     private String nome;
 
     @NotEmpty
+    @NotNull
     private String login;
 
     @NotEmpty
+    @NotNull
     private String senha;
 
     @NotEmpty

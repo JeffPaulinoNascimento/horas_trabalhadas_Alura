@@ -19,7 +19,8 @@ public class LoginController {
     private Result result;
     private Validator validator;
 
-    public LoginController(){}
+    public LoginController() {
+    }
 
     @Inject
     public void LoginController(UsuarioDao usuarioDao, UsuarioLogado usuarioLogado, Result result, Validator validator) {
@@ -30,7 +31,8 @@ public class LoginController {
     }
 
     @Open
-    public void form(){}
+    public void form() {
+    }
 
     @Open
     public void autentica(String login, String senha) {
@@ -46,7 +48,7 @@ public class LoginController {
     }
 
     @Open
-    public void desloga(){
+    public void desloga() {
         usuarioLogado.desloga();
         result.redirectTo(this).form();
     }

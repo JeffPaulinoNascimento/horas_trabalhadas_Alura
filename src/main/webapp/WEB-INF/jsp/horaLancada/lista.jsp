@@ -4,7 +4,7 @@
 
 <c:import url="/WEB-INF/jsp/header.jsp"/>
 
-<a href="${linkTo[HoraLancadaController].form()}">Cadastrar Hora</a>
+<h2>Lista Detalhada</h2>
 
 <table class = "table table-hover">
     <thead>
@@ -28,7 +28,6 @@
         </tr>
     </c:forEach>
     </tbody>
-
 </table>
 
 <c:import url="/WEB-INF/jsp/footer.jsp"/>

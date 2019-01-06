@@ -4,6 +4,7 @@ import br.com.alura.horas.modelos.Usuario;
 
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Named

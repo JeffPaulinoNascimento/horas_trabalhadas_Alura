@@ -1,5 +1,7 @@
 package br.com.alura.horas.modelos;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.text.ParseException;
@@ -18,8 +20,12 @@ public class HoraLancada {
     @Temporal(TemporalType.DATE)
     private Calendar data;
 
+    @NotNull
+    @NotEmpty
     private String horaInicial;
 
+    @NotNull
+    @NotEmpty
     private String horaFinal;
 
     @ManyToOne

@@ -6,6 +6,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
+import javax.transaction.Transactional;
 import java.util.List;
 
 
@@ -34,9 +35,14 @@ public class UsuarioDao {
     }
 
     public Usuario busca(String login, String senha) {
-        TypedQuery<Usuario> query = manager.createQuery("select u from Usuario u where u.login = :login and u.senha = :senha", Usuario.class);
-        query.setParameter("login", login);
-        query.setParameter("senha", senha);
-        return query.getSingleResult();
+        if(login != null && senha != null) {
+            TypedQuery<Usuario> query = manager.createQuery("select u from Usuario u where u.login = :login and u.senha = :senha", Usuario.class);
+            query.setParameter("login", login);
+            query.setParameter("senha", senha);
+            return query.getSingleResult();
+        }else{
+            return null;
+        }
+
     }
 }
